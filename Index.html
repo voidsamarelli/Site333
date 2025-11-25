@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  
+  <body>
+    <div id="clock" class="clock"></div>
+<script>
+  function atualizarRelogio() {
+    let agora = new Date();
+
+    let horas = agora.getHours();
+    let minutos = agora.getMinutes();
+    let segundos = agora.getSeconds();
+
+    // Deixar sempre com 2 dígitos (ex: 08:05:02)
+    horas = horas.toString().padStart(2, '0');
+    minutos = minutos.toString().padStart(2, '0');
+    segundos = segundos.toString().padStart(2, '0');
+
+    // Atualizar o HTML
+    document.getElementById("clock").innerText =
+        `${horas}:${minutos}:${segundos}`;
+}
+
+// Atualiza a cada 1 segundo
+setInterval(atualizarRelogio, 1000);
+
+// Chamar uma vez pra não começar vazio
+atualizarRelogio();
+</script>
+  </body>
+</html>
